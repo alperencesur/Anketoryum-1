@@ -1,4 +1,4 @@
-package com.anket.Anketoryum;
+package com.anket.Anketoryum.model;
 
 public class Survey {
 	private int surveyID;
