@@ -26,4 +26,15 @@ public class SurveyController {
 			return new Presenter(400, e.getMessage(), null);	
 		}
 	}
+	// create survey request
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
+	public Presenter getSurvey() {
+		try {
+			return new Presenter(200, "Success",surveyService.getSurvey());
+		}
+		catch(Exception e) {
+			return new Presenter(400, e.getMessage(), null);	
+		}
+	}
+	
 }
