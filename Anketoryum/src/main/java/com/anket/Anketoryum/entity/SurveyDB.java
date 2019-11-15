@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SURVEY")
+@Table(name="Survey")
 public class SurveyDB {
 	
 	@Id
@@ -30,6 +30,10 @@ public class SurveyDB {
 	
 	@Column(name="SUBJECT")
 	public String subject;
+	
+	public SurveyDB(){
+		   super();
+	}
 	
 	public SurveyDB(String surveyID, String question, String creatorID, String date, String finishDate, int isActive,
 			String subject) {
