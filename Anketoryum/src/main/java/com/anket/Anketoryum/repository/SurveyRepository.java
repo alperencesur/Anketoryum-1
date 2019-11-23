@@ -11,4 +11,7 @@ public interface SurveyRepository extends JpaRepository<SurveyDB,String> {
 			nativeQuery = true)
 	SurveyDB getSurvey();
 
+	@Query(value=" INSERT INTO Survey(question,creatorID)"
+			+ " VALUES (?1, ?2);",nativeQuery = true)
+	void addSurvey(String question, int UserID,String);
 }

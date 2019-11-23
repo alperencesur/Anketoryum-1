@@ -13,12 +13,20 @@ public class SurveyService {
 	@Autowired
 	SurveyDao surveyDao;
 	
+	/*
+	 *  choicesDAo ve choices repository dosyaları oluşturalacak.
+	@Autowired
+	ChoicesDao choicesDao;
+	*/
+	
 	/* Survey classı şeklinde çektik ancak database e direk böyle kaydetmiyoruz 
 	 * tablelardan dolayı. 
 	 * İstenen şekilde bölüyoruz.
 	 */	 
 	public String AddSurvey(Survey survey) {
-		return null;
+		 surveyDao.addSurvey(survey);
+	//	 choicesDao.Survey);
+		 return "success";
 	}
 	
 	
