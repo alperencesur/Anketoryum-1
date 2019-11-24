@@ -13,6 +13,9 @@ public class SurveyService {
 	@Autowired
 	SurveyDao surveyDao;
 	
+	@Autowired
+	CommonService commonService;
+	
 	/*
 	 *  choicesDAo ve choices repository dosyaları oluşturalacak.
 	@Autowired
@@ -24,12 +27,14 @@ public class SurveyService {
 	 * İstenen şekilde bölüyoruz.
 	 */	 
 	public String AddSurvey(Survey survey) {
-		 surveyDao.addSurvey(survey);
-	//	 choicesDao.Survey);
-		 return "success";
-	}
-	
-	
+		SurveyDB newSurvey = new SurveyDB();
+		newSurvey.setQuestion(survey.getQuestion());
+		newSurvey.setCreatorID(6);
+		newSurvey.setDate(commonService.getDate());
+		newSurvey.setFinishDate(survey.getFinishDate());
+		surveyDao.addSurvey(newSurvey);
+		return "success";
+	}		
 	public SurveyDB getSurvey() {
 		return surveyDao.getSurvey();
 	}

@@ -4,12 +4,12 @@ public class Survey {
 	private int surveyID;
 	private String question;
 	private int creatorID;
-	private int date[];
-	private int finishDate[];
+	private String date;
+	private String finishDate;
 	private boolean isActive;
 	private String subject[];
 	
-	public Survey(int surveyID, String question, int creatorID, int[] date, int[] finishDate, boolean isActive,
+	public Survey(int surveyID, String question, int creatorID, String date, String finishDate, boolean isActive,
 			String[] subject) {
 		super();
 		this.surveyID = surveyID;
@@ -38,16 +38,16 @@ public class Survey {
 	public void setCreatorID(int creatorID) {
 		this.creatorID = creatorID;
 	}
-	public int[] getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(int[] date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public int[] getFinishDate() {
+	public String getFinishDate() {
 		return finishDate;
 	}
-	public void setFinishDate(int[] finishDate) {
+	public void setFinishDate(String finishDate) {
 		this.finishDate = finishDate;
 	}
 	public boolean isActive() {

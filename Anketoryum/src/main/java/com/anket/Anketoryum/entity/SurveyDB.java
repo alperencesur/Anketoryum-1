@@ -11,13 +11,13 @@ public class SurveyDB {
 	
 	@Id
 	@Column(name="SURVEYID")
-	public String surveyID;
+	public int surveyID;
 	
 	@Column(name="QUESTION")
 	public String question;
 	
 	@Column(name="CREATORID")
-	public String creatorID;
+	public int creatorID;
 	
 	@Column(name="DATE")
 	public String date;
@@ -35,7 +35,7 @@ public class SurveyDB {
 		   super();
 	}
 	
-	public SurveyDB(String surveyID, String question, String creatorID, String date, String finishDate, int isActive,
+	public SurveyDB(int surveyID, String question, int creatorID, String date, String finishDate, int isActive,
 			String subject) {
 		super();
 		this.surveyID = surveyID;
@@ -46,10 +46,10 @@ public class SurveyDB {
 		this.isActive = isActive;
 		this.subject = subject;
 	}
-	public String getSurveyID() {
+	public int getSurveyID() {
 		return surveyID;
 	}
-	public void setSurveyID(String surveyID) {
+	public void setSurveyID(int surveyID) {
 		this.surveyID = surveyID;
 	}
 	public String getQuestion() {
@@ -58,10 +58,10 @@ public class SurveyDB {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public String getCreatorID() {
+	public int getCreatorID() {
 		return creatorID;
 	}
-	public void setCreatorID(String creatorID) {
+	public void setCreatorID(int creatorID) {
 		this.creatorID = creatorID;
 	}
 	public String getDate() {

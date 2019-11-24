@@ -16,8 +16,8 @@ public class SurveyDao {
 		return repository.getSurvey();
 	}
 	
-	public void addSurvey(Survey survey) {
-		repository.addSurvey(survey.getQuestion(),survey.getCreatorID(),survey.getSurveyID());
+	public void addSurvey(SurveyDB survey) {
+		repository.addSurvey(survey.getQuestion(),survey.getCreatorID(),survey.getDate(),survey.getFinishDate());
 	}
 
 }

@@ -20,15 +20,12 @@ public class SurveyController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public Presenter addSurvey(@RequestBody Survey survey) {
 		try {
-			System.out.println(survey.getQuestion());
-			survey.setSurveyID(124);
 			return new Presenter(200, "Success",surveyService.AddSurvey(survey));
 		}
 		catch(Exception e) {
 			return new Presenter(400, e.getMessage(), null);	
 		}
 	}
-	// create survey request
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public Presenter getSurvey() {
 		try {
