@@ -8,9 +8,11 @@ public class Survey {
 	private String finishDate;
 	private boolean isActive;
 	private String subject[];
+	private String choice[];
 	
+
 	public Survey(int surveyID, String question, int creatorID, String date, String finishDate, boolean isActive,
-			String[] subject) {
+			String[] subject, String[] choice) {
 		super();
 		this.surveyID = surveyID;
 		this.question = question;
@@ -62,5 +64,10 @@ public class Survey {
 	public void setSubject(String[] subject) {
 		this.subject = subject;
 	}
-	
+	public String[] getChoice() {
+		return choice;
+	}
+	public void setChoice(String[] choice) {
+		this.choice = choice;
+	}
 }

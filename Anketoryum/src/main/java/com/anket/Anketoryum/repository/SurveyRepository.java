@@ -10,7 +10,7 @@ public interface SurveyRepository extends JpaRepository<SurveyDB,String> {
 	
 	@Query(value="SELECT * FROM SURVEY", 
 			nativeQuery = true)
-	SurveyDB getSurvey();
+	SurveyDB[] getSurvey();
 
 	@Query(value=" INSERT INTO Survey(question,creatorID,date,finishdate)"
 			+ " VALUES (?1, ?2,?3,?4);",nativeQuery = true)

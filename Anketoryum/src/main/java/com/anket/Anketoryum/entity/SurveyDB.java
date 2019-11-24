@@ -28,15 +28,13 @@ public class SurveyDB {
 	@Column(name="ISACTIVE")
 	public int isActive;
 	
-	@Column(name="SUBJECT")
-	public String subject;
-	
+
 	public SurveyDB(){
 		   super();
 	}
 	
-	public SurveyDB(int surveyID, String question, int creatorID, String date, String finishDate, int isActive,
-			String subject) {
+	public SurveyDB(int surveyID, String question, int creatorID, String date, String finishDate, int isActive
+			) {
 		super();
 		this.surveyID = surveyID;
 		this.question = question;
@@ -44,7 +42,6 @@ public class SurveyDB {
 		this.date = date;
 		this.finishDate = finishDate;
 		this.isActive = isActive;
-		this.subject = subject;
 	}
 	public int getSurveyID() {
 		return surveyID;
@@ -82,12 +79,7 @@ public class SurveyDB {
 	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+
 	
 	
 

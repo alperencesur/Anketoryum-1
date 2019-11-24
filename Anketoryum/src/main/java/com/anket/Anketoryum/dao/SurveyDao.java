@@ -12,7 +12,7 @@ public class SurveyDao {
 	@Autowired
 	private SurveyRepository repository;
 
-	public SurveyDB getSurvey() {		
+	public SurveyDB[] getSurvey() {		
 		return repository.getSurvey();
 	}
 	

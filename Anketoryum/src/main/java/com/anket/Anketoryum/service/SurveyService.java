@@ -3,6 +3,7 @@ package com.anket.Anketoryum.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.anket.Anketoryum.dao.ChoiceDao;
 import com.anket.Anketoryum.dao.SurveyDao;
 import com.anket.Anketoryum.entity.SurveyDB;
 import com.anket.Anketoryum.model.Survey;
@@ -16,11 +17,10 @@ public class SurveyService {
 	@Autowired
 	CommonService commonService;
 	
-	/*
-	 *  choicesDAo ve choices repository dosyaları oluşturalacak.
+	
 	@Autowired
-	ChoicesDao choicesDao;
-	*/
+	ChoiceDao choiceDao;
+
 	
 	/* Survey classı şeklinde çektik ancak database e direk böyle kaydetmiyoruz 
 	 * tablelardan dolayı. 
@@ -33,9 +33,11 @@ public class SurveyService {
 		newSurvey.setDate(commonService.getDate());
 		newSurvey.setFinishDate(survey.getFinishDate());
 		surveyDao.addSurvey(newSurvey);
+		choiceDao.addChoice(6, survey.getChoice());
 		return "success";
+		
 	}		
-	public SurveyDB getSurvey() {
+	public SurveyDB[] getSurvey() {
 		return surveyDao.getSurvey();
 	}
 
