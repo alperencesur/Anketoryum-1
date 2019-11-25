@@ -1,5 +1,7 @@
 package com.anket.Anketoryum.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,7 @@ import com.anket.Anketoryum.dao.SurveyDao;
 import com.anket.Anketoryum.entity.SurveyDB;
 import com.anket.Anketoryum.model.Survey;
 
+@Transactional
 @Service
 public class SurveyService {
 
@@ -32,8 +35,12 @@ public class SurveyService {
 		newSurvey.setCreatorID(6);
 		newSurvey.setDate(commonService.getDate());
 		newSurvey.setFinishDate(survey.getFinishDate());
-		surveyDao.addSurvey(newSurvey);
+		
+		System.out.println( survey.getChoice());
 		choiceDao.addChoice(6, survey.getChoice());
+		surveyDao.addSurvey(newSurvey);
+		
+
 		return "success";
 		
 	}		

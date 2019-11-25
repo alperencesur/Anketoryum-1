@@ -1,5 +1,7 @@
 package com.anket.Anketoryum.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +9,7 @@ import com.anket.Anketoryum.dao.ChoiceDao;
 import com.anket.Anketoryum.entity.ChoiceDB;
 import com.anket.Anketoryum.model.Choice;
 
+@Transactional
 @Service
 public class ChoiceService {
 	

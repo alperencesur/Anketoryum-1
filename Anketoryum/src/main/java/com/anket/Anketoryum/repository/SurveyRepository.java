@@ -1,18 +1,25 @@
 package com.anket.Anketoryum.repository;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.anket.Anketoryum.entity.SurveyDB;
 
+
+@Repository
 public interface SurveyRepository extends JpaRepository<SurveyDB,String> {
-	
+	@Modifying
 	@Query(value="SELECT * FROM SURVEY", 
 			nativeQuery = true)
 	SurveyDB[] getSurvey();
 
+
+	@Modifying
 	@Query(value=" INSERT INTO Survey(question,creatorID,date,finishdate)"
 			+ " VALUES (?1, ?2,?3,?4);",nativeQuery = true)
-	String addSurvey(String question, int UserID,String date,String finishDate);
+	void addSurvey(String question, int UserID,String date,String finishDate);
 }

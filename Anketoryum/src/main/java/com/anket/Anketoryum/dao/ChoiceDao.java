@@ -18,7 +18,8 @@ public class ChoiceDao {
 	
 	public void addChoice(int creatorID, String[] choice) {
 		for(int i=0; i<choice.length; i++) {
-		repository.addChoice(creatorID, choice[i]);
+			System.out.println( choice[i]);
+			repository.addChoice(creatorID, choice[i]);
 		}
 	}
 }

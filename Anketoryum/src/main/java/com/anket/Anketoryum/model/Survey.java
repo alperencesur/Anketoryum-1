@@ -65,9 +65,9 @@ public class Survey {
 		this.subject = subject;
 	}
 	public String[] getChoice() {
-		return choice;
+		 return java.util.Arrays.copyOf(this.choice, this.choice.length);
 	}
 	public void setChoice(String[] choice) {
-		this.choice = choice;
+		this.choice = java.util.Arrays.copyOf(choice, choice.length);
 	}
 }
