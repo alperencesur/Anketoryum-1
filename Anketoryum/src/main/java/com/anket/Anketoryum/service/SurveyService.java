@@ -35,12 +35,9 @@ public class SurveyService {
 		newSurvey.setCreatorID(6);
 		newSurvey.setDate(commonService.getDate());
 		newSurvey.setFinishDate(survey.getFinishDate());
-		
-		System.out.println( survey.getChoice());
-		choiceDao.addChoice(6, survey.getChoice());
 		surveyDao.addSurvey(newSurvey);
-		
-
+		int surveyID = surveyDao.getSurveyID(6,newSurvey.getDate());
+		choiceDao.addChoice(surveyID, survey.getChoice());				
 		return "success";
 		
 	}

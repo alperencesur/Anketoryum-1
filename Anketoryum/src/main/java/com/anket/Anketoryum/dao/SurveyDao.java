@@ -19,5 +19,7 @@ public class SurveyDao {
 	public void addSurvey(SurveyDB survey) {
 		repository.addSurvey(survey.getQuestion(),survey.getCreatorID(),survey.getDate(),survey.getFinishDate());
 	}
-
+	public int getSurveyID(int userID,String date) {
+		return repository.getSurveyID(userID, date);
+	}
 }

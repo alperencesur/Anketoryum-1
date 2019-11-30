@@ -1,5 +1,7 @@
 package com.anket.Anketoryum.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,10 +18,12 @@ public class ChoiceDao {
 		return repository.getChoice();
 	}
 	
-	public void addChoice(int creatorID, String[] choice) {
-		for(int i=0; i<choice.length; i++) {
-			System.out.println( choice[i]);
-			repository.addChoice(creatorID, choice[i]);
+	public void addChoice(int questionID, List<String> choice) {
+		System.out.println(choice);
+		System.out.println(choice.size());
+		for(int i=0; i<choice.size(); i++) {
+			System.out.println( choice.get(i));
+			repository.addChoice(questionID, choice.get(i));
 		}
 	}
 }

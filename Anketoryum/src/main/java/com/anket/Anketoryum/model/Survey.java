@@ -1,5 +1,7 @@
 package com.anket.Anketoryum.model;
 
+import java.util.List;
+
 public class Survey {
 	private int surveyID;
 	private String question;
@@ -8,11 +10,16 @@ public class Survey {
 	private String finishDate;
 	private boolean isActive;
 	private String subject[];
-	private String choice[];
+	private List<String> choice;
+
 	
 
+	public Survey() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Survey(int surveyID, String question, int creatorID, String date, String finishDate, boolean isActive,
-			String[] subject, String[] choice) {
+			String[] subject, List<String>choice) {
 		super();
 		this.surveyID = surveyID;
 		this.question = question;
@@ -21,6 +28,7 @@ public class Survey {
 		this.finishDate = finishDate;
 		this.isActive = isActive;
 		this.subject = subject;
+		this.choice = choice;
 	}
 	public int getSurveyID() {
 		return surveyID;
@@ -64,10 +72,12 @@ public class Survey {
 	public void setSubject(String[] subject) {
 		this.subject = subject;
 	}
-	public String[] getChoice() {
-		 return java.util.Arrays.copyOf(this.choice, this.choice.length);
+	public List<String> getChoice() {
+		return choice;
 	}
-	public void setChoice(String[] choice) {
-		this.choice = java.util.Arrays.copyOf(choice, choice.length);
+	public void setChoice(List<String> choice) {
+		this.choice = choice;
 	}
+
+	
 }
