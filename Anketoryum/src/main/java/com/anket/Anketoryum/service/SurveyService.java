@@ -43,7 +43,9 @@ public class SurveyService {
 
 		return "success";
 		
-	}		
+	}
+	
+	
 	public SurveyDB[] getSurvey() {
 		return surveyDao.getSurvey();
 	}
