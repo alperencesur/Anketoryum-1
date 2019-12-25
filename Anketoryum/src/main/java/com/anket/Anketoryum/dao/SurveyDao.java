@@ -3,7 +3,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.anket.Anketoryum.entity.SurveyDB;
-import com.anket.Anketoryum.model.Survey;
 import com.anket.Anketoryum.repository.SurveyRepository;
 
 @Component
