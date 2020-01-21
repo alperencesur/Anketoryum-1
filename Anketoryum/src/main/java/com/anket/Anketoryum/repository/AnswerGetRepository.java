@@ -17,6 +17,9 @@ public interface AnswerGetRepository extends JpaRepository<AnswerGet, String>{
 			+ "ON (CHOICE.CHOICEID = ANSWER.CHOICESID) "
 			+ "WHERE (ANSWER.QUESTIONID = ?1) ", nativeQuery = true)
 	AnswerGet[] getAnswers(int questionID);
+	
+	@Query(value = "SELECT COUNT(CHOICESID) FROM ANSWER WHERE CHOICESID = ?1", nativeQuery = true)
+	long getVoteCount(int choiceID);
 }
 /*
 @Query (value = "SELECT CHOICE.DESCRIPTION, COUNT(ANSWERS.CHOICEID) FROM ANSWERS JOIN CHOICE "

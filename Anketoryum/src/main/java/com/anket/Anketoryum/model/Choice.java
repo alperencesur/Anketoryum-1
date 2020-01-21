@@ -2,15 +2,20 @@ package com.anket.Anketoryum.model;
 
 public class Choice {
 	private int choiceID;
-	private int questionID;
+	private long voteNumber;
 	private String description;
 	
 	
-	public Choice(int choiceID, int questionID, String description) {
+	public Choice(int choiceID, long voteNumber, String description) {
 		super();
 		this.choiceID = choiceID;
-		this.questionID = questionID;
+		this.voteNumber = voteNumber;
 		this.description = description;
+	}
+
+
+	public Choice() {
+		super();	
 	}
 
 
@@ -24,13 +29,13 @@ public class Choice {
 	}
 
 
-	public int getQuestionID() {
-		return questionID;
+	public long getVoteNumber() {
+		return voteNumber;
 	}
 
 
-	public void setQuestionID(int questionID) {
-		this.questionID = questionID;
+	public void setVoteNumber(long voteNumber) {
+		this.voteNumber = voteNumber;
 	}
 
 

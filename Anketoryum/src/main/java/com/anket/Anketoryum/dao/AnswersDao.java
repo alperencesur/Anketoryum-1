@@ -17,4 +17,8 @@ public class AnswersDao {
 	public AnswerGet[] getAnswers(int questionID) {
 		return getRepository.getAnswers(questionID);
 	}
+	
+	public long getVoteCount(int choiceID) {
+		return getRepository.getVoteCount(choiceID);
+	}
 }
