@@ -36,4 +36,13 @@ public class SurveyController {
 		}
 	}
 	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public Presenter getHomeSurvey() {
+		try {
+			return new Presenter(200, "Succes", surveyService.getHomeSurveys());
+		}
+		catch(Exception e) {
+			return new Presenter(400, e.getMessage(), null);
+		}
+	}
 }

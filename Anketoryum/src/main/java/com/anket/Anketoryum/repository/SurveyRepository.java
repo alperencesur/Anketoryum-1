@@ -26,5 +26,7 @@ public interface SurveyRepository extends JpaRepository<SurveyDB,String> {
 	@Query(value="SELECT SURVEYID FROM SURVEY WHERE ((CREATORID = ?1) AND (DATE = ?2))",nativeQuery = true)
 	int getSurveyID(int UserID,String date);
 	
+
+	
 }
 

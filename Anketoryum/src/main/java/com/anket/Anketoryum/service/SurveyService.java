@@ -1,5 +1,8 @@
 package com.anket.Anketoryum.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.anket.Anketoryum.dao.ChoiceDao;
 import com.anket.Anketoryum.dao.SurveyDao;
+import com.anket.Anketoryum.entity.HomeSurvey;
 import com.anket.Anketoryum.entity.SurveyDB;
+import com.anket.Anketoryum.model.HomeSurveys;
 import com.anket.Anketoryum.model.Survey;
 
 @Transactional
@@ -40,6 +45,23 @@ public class SurveyService {
 		choiceDao.addChoice(surveyID, survey.getChoice());				
 		return "success";
 		
+	}
+	
+	public ArrayList<HomeSurveys> getHomeSurveys() {
+		int currentUserID = 7;
+		HomeSurvey surveys[] = surveyDao.getHomeSurveys();
+		ArrayList<HomeSurveys> homeSurveys = new ArrayList<HomeSurveys>(surveys.length);
+		System.out.println(surveys.length);
+		for(int i = 0;i<surveys.length;i++) {
+			HomeSurveys survey = new HomeSurveys();
+			survey.setSurveyID(surveys[i].getSurveyID());
+			survey.setQuestion(surveys[i].getQuestion());
+			survey.setVoteNumber(surveyDao.getVoteNum(surveys[i].getSurveyID()));
+			survey.setIsVoted(surveyDao.getIsVoted(surveys[i].getSurveyID(), currentUserID));
+			homeSurveys.add(survey);
+		}
+		
+		return homeSurveys;
 	}
 	
 	
