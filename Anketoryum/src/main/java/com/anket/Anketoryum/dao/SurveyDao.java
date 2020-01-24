@@ -14,6 +14,7 @@ public class SurveyDao {
 	@Autowired
 	private SurveyRepository repository;
 	
+	@Autowired
 	public HomeSurveyRepository homeRepository;
 	
 	

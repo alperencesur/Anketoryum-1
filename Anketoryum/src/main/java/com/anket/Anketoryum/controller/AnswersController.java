@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anket.Anketoryum.Presenter;
+import com.anket.Anketoryum.model.Answer;
 import com.anket.Anketoryum.model.Survey;
 import com.anket.Anketoryum.service.AnswerGetService;
 
@@ -21,6 +22,16 @@ public class AnswersController {
 	public Presenter getAnswers(@PathVariable("id") int id) {
 		try {
 			return new Presenter(200, "Success", answerGetService.getAnswers(id));
+		}
+		catch(Exception e) {
+			return new Presenter(400, e.getMessage(), null);
+		}
+	}
+	
+	@RequestMapping(value="/add", method = RequestMethod.POST)
+	public Presenter addAnswer(@RequestBody Answer answer) {
+		try {
+			return new Presenter(200, "Success", answerGetService.addAnswer(answer));
 		}
 		catch(Exception e) {
 			return new Presenter(400, e.getMessage(), null);

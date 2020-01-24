@@ -15,8 +15,8 @@ public interface  HomeSurveyRepository  extends JpaRepository<HomeSurvey,Integer
 	@Query(value="SELECT COUNT(SURVEYID) FROM SURVEY WHERE SURVEYID= ?1",nativeQuery = true)
 	long getVoteNum(int surveyID);
 	
-	@Query(value="SELECT COUNT(SURVEYID) FROM SURVEY JOIN ANSWER"
+	@Query(value="SELECT COUNT(SURVEYID)>0 FROM SURVEY JOIN ANSWER"
 			+ " ON (ANSWER.QUESTIONID = SURVEY.SURVEYID)"
-			+ " WHERE ((SURVEY.SURVEYID = ?1) AND (ANSWER.USERID = ?2)")
+			+ " WHERE ((SURVEY.SURVEYID = ?1) AND (ANSWER.USERID = ?2))", nativeQuery = true)
 	boolean getIsVoted(int surveyID, int userID);
 }

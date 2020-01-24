@@ -46,24 +46,39 @@ public class SurveyService {
 		return "success";
 		
 	}
-	
+	 /*
+	public HomeSurvey[] getHomeSurveys() {	
+		return surveyDao.getHomeSurveys();
+	}
+	*/
 	public ArrayList<HomeSurveys> getHomeSurveys() {
+		System.out.println("fonk girdi");
 		int currentUserID = 7;
 		HomeSurvey surveys[] = surveyDao.getHomeSurveys();
+		System.out.println(surveys.length);
+		System.out.println("fonk girdi");
+
 		ArrayList<HomeSurveys> homeSurveys = new ArrayList<HomeSurveys>(surveys.length);
 		System.out.println(surveys.length);
+		System.out.println("fora gircek");
 		for(int i = 0;i<surveys.length;i++) {
 			HomeSurveys survey = new HomeSurveys();
+
 			survey.setSurveyID(surveys[i].getSurveyID());
 			survey.setQuestion(surveys[i].getQuestion());
 			survey.setVoteNumber(surveyDao.getVoteNum(surveys[i].getSurveyID()));
 			survey.setIsVoted(surveyDao.getIsVoted(surveys[i].getSurveyID(), currentUserID));
+			System.out.println("Surveyid, isvoted, question, votenum:");
+			System.out.println(survey.getSurveyID());
+			System.out.println(survey.getIsVoted());
+			System.out.println(survey.getQuestion());
+			System.out.println(survey.getVoteNumber());
 			homeSurveys.add(survey);
 		}
 		
 		return homeSurveys;
 	}
-	
+
 	
 	public SurveyDB[] getSurvey() {
 		return surveyDao.getSurvey();

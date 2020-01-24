@@ -21,4 +21,8 @@ public class AnswersDao {
 	public long getVoteCount(int choiceID) {
 		return getRepository.getVoteCount(choiceID);
 	}
+	
+	public void addAnswer(int userid, int questionid, int choicesid, String date) {
+		getRepository.addAnswer(userid, questionid, choicesid, date);
+	}
 }

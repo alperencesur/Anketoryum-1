@@ -12,7 +12,6 @@ import com.anket.Anketoryum.entity.AnswerGet;
 
 @Repository
 public interface AnswerGetRepository extends JpaRepository<AnswerGet, String>{
-	@Modifying
 	@Query (value = "SELECT ANSWER.ANSWERID, CHOICE.DESCRIPTION, ANSWER.CHOICESID FROM ANSWER JOIN CHOICE "
 			+ "ON (CHOICE.CHOICEID = ANSWER.CHOICESID) "
 			+ "WHERE (ANSWER.QUESTIONID = ?1) ", nativeQuery = true)
@@ -20,7 +19,13 @@ public interface AnswerGetRepository extends JpaRepository<AnswerGet, String>{
 	
 	@Query(value = "SELECT COUNT(CHOICESID) FROM ANSWER WHERE CHOICESID = ?1", nativeQuery = true)
 	long getVoteCount(int choiceID);
+	
+	@Modifying
+	@Query(value = "insert into answer(userid,questionid, choicesid,date) " 
+			+ "VALUES(?1,?2,?3,?4);", nativeQuery= true)
+	void addAnswer(int userid, int questionid, int choicesid, String date);
 }
+	
 /*
 @Query (value = "SELECT CHOICE.DESCRIPTION, COUNT(ANSWERS.CHOICEID) FROM ANSWERS JOIN CHOICE "
 		+ "ON (CHOICE.CHOICEID = ANSWERS.CHOICEID) "
