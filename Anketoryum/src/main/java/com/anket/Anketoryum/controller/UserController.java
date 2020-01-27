@@ -20,7 +20,7 @@ public class UserController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public Presenter registerUser(@RequestBody User user) {
 		try {
-			return new Presenter(200, "Succes", userService.createUser(user));
+			return new Presenter(200, "Success", userService.createUser(user));
 		}
 		catch(Exception e) {
 			return new Presenter(400, e.getMessage(), null);

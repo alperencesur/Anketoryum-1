@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.anket.Anketoryum.entity.UserDB;
 import com.anket.Anketoryum.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,String> {
+public interface UserRepository extends JpaRepository<UserDB,String> {
 	
 	@Modifying
 	@Query(value="INSERT INTO Users(username,email,registerdate,password,gender,place,age)"
